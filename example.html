@@ -23,7 +23,7 @@
       input[type="text"] {
         width: 250px;
       }
-      input[type="number"] {
+      #calc input {
         width: 80px;
         font-size: 20px;
       }
@@ -101,7 +101,7 @@
         <input
           class="uk-input"
           type="number"
-          value="100"
+          value="200"
           name="words"
           step="100"
         />
@@ -121,10 +121,19 @@
         <input
           class="uk-input"
           type="number"
-          value="4"
+          value="3"
           name="maxWords"
         />
         maxWords <small></small>
+      </div>
+      <div>
+        <input
+          class="uk-input"
+          type="string"
+          value="+-*:"
+          name="separators"
+        />
+        separators
       </div>
       <h3>
         Possible Passwords: <span id="possible"></span>
@@ -138,6 +147,7 @@
             words: this.val("words"),
             minWords: this.val("minWords"),
             maxWords: this.val("maxWords"),
+            separators: this.val("separators"),
           };
         }
         calc() {
@@ -159,10 +169,11 @@
           let words = [];
           for (var i = 0; i < input.value; i++) {
             words.push(
-              MyPass.randomArrayElement(["example", "Example"]) + (i + 1)
+              MyPass.randomArrayElement(["example", "Example"]) +
+                MyPass.rand(1, this.val("words"))
             );
           }
-          small.innerText = words.join("-");
+          small.innerText = MyPass.join(words, this.val("separators"));
         }
       }
       const MyCalc = new Calculator();

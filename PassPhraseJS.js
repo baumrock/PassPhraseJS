@@ -5,6 +5,7 @@ class PassPhraseJS {
     this.minLength = 10;
     this.minWords = 2;
     this.maxWords = 4;
+    this.separators = "+-*:";
     // user settings
     this.words = words || [];
     this.setOptions(options);
@@ -85,10 +86,10 @@ class PassPhraseJS {
       "",
       "--- Settings for random passphrase",
     ];
-    let props = ["minLength", "minWords", "maxWords"];
+    let props = ["separators", "minLength", "minWords", "maxWords"];
     for (var i = 0; i < props.length; i++) {
       let prop = props[i];
-      info.push(prop + ": " + this[prop]);
+      info.push(prop + ': "' + this[prop] + '"');
     }
     info.push("");
     info.push("--- Possible Passwords (minLength ignored)");
@@ -97,9 +98,26 @@ class PassPhraseJS {
         words: this.words.length,
         minWords: this.minWords,
         maxWords: this.maxWords,
-      })
+        separators: this.separators,
+      }).toLocaleString()
     );
     return info;
+  }
+
+  /**
+   * Join words with random separator
+   * @param {array} words
+   * @param {string} separators
+   * @returns string
+   */
+  join(words, separators) {
+    let sep = "";
+    let result = "";
+    for (var i = 0; i < words.length; i++) {
+      result = result + sep + words[i];
+      sep = this.separator(separators);
+    }
+    return result;
   }
 
   /**
@@ -120,11 +138,11 @@ class PassPhraseJS {
     let words = [];
     let exclude = [];
     for (var i = 0; i < numwords; i++) {
-      var word = this.randomWord(exclude);
+      var word = this.randomWord();
       words.push(word);
       exclude.push(this.lower(word));
     }
-    let phrase = words.join("-");
+    let phrase = this.join(words);
     if (phrase.length < this.minLength) return this.passphrase();
     return phrase;
   }
@@ -136,10 +154,35 @@ class PassPhraseJS {
   possible(settings) {
     if (settings.words < 1) return "-- INVALID --";
     let words = settings.words * 2; // upper + lowercase
-    let numWords = settings.maxWords - settings.minWords + 1;
-    let approx = Math.pow(words, numWords);
-    if (approx < words) return "-- INVALID --";
-    return approx;
+    let dimensions = this.possibleDimensions(settings);
+    let total = 0;
+
+    this.each(dimensions, (dim) => {
+      let dimPlain = Math.pow(words, dim);
+      let numSeps = settings.separators.length; // +-* = 3
+      let wordSeps = dim - 1; // dim=3 --> foo-bar-baz --> 2 seps
+      let sepCombinations = Math.pow(numSeps, wordSeps);
+      let dimTotal = dimPlain * sepCombinations;
+      total += dimTotal;
+    });
+
+    return total;
+  }
+
+  /**
+   * Get an array of possible dimensions (for calculator)
+   * minWords = 2, maxWords = 4 --> [2, 3, 4]
+   * @param {object} settings
+   * @returns array
+   */
+  possibleDimensions(settings) {
+    let dimensions = [];
+    let max = settings.maxWords;
+    while (max >= settings.minWords) {
+      dimensions.push(max * 1);
+      max--;
+    }
+    return dimensions;
   }
 
   /**
@@ -154,15 +197,11 @@ class PassPhraseJS {
 
   /**
    * Return a random single word
-   * @param {array} exclude
    * @returns string
    */
-  randomWord(exclude) {
+  randomWord() {
     let word = this.randomArrayElement(this.words);
-    let lower = this.lower(word);
-    let upper = this.upper(word);
-    if (exclude.includes(lower)) return this.randomWord(exclude);
-    return this.randomArrayElement([lower, upper]);
+    return this.randomArrayElement([this.lower(word), this.upper(word)]);
   }
 
   /**
@@ -183,6 +222,15 @@ class PassPhraseJS {
     let selector = el.getAttribute("passphrasejs-renew");
     let target = this.$(selector);
     if (target) target.innerText = this.passphrase();
+  }
+
+  /**
+   * Get a random separator
+   * @returns string
+   */
+  separator(separators) {
+    separators = separators || this.separators;
+    return separators[Math.floor(Math.random() * separators.length)];
   }
 
   /**
