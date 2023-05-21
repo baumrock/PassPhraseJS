@@ -2,19 +2,13 @@
 
 Vanilla Javascript Random Passphrase Generator
 
-<br>
-
 ## Demo
 
 <img src=demo.png alt="PassPhraseJS Demo">
 
-<br>
-
 ## Example
 
 <a href="example.html">Also see the interactive example here!</a>
-
-<br>
 
 ## Usage:
 
@@ -41,3 +35,9 @@ const passphrase = new PassPhraseJS([
 ]);
 </script>
 ```
+
+## Where to get random words?
+
+You can either use online tools like https://www.atatus.com/tools/random-word-generator or you can ask your preferred AI to create that array of words for you!
+
+<img src=https://i.imgur.com/lqrHOws.png>
