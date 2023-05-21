@@ -1,3 +1,12 @@
+# [0.5.0](https://github.com/baumrock/PassPhraseJS/compare/v0.4.1...v0.5.0) (2023-05-21)
+
+
+### Features
+
+* improve default separators ([ca61d1d](https://github.com/baumrock/PassPhraseJS/commit/ca61d1d5b41891a1949dd8a7bbe3bc769ffb0eba))
+
+
+
 ## [0.4.1](https://github.com/baumrock/PassPhraseJS/compare/v0.4.0...v0.4.1) (2023-05-21)
 
 
@@ -31,16 +40,6 @@
 ### Bug Fixes
 
 * update minified file ([4265d4f](https://github.com/baumrock/PassPhraseJS/commit/4265d4f31e596b07b2c1f26b9eb7a1a468921185))
-
-
-
-# [0.2.0](https://github.com/baumrock/PassPhraseJS/compare/v0.1.0...v0.2.0) (2023-05-21)
-
-
-### Features
-
-* add example.html ([8f84cf8](https://github.com/baumrock/PassPhraseJS/commit/8f84cf89d464f580e3628b3cf20f6066f450bec5))
-* upload initial version ([5f03453](https://github.com/baumrock/PassPhraseJS/commit/5f0345378ab248bc2750dfd25d018829eae7517b))
 
 
 
