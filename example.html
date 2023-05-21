@@ -111,7 +111,6 @@
         <input
           class="uk-input"
           type="number"
-          value="2"
           name="minWords"
           min="2"
         />
@@ -121,7 +120,6 @@
         <input
           class="uk-input"
           type="number"
-          value="3"
           name="maxWords"
         />
         maxWords <small></small>
@@ -130,7 +128,6 @@
         <input
           class="uk-input"
           type="string"
-          value="+-*:"
           name="separators"
         />
         separators
@@ -142,6 +139,11 @@
     </form>
     <script>
       class Calculator {
+        constructor() {
+          this.input("separators").value = MyPass.separators;
+          this.input("minWords").value = MyPass.minWords;
+          this.input("maxWords").value = MyPass.maxWords;
+        }
         settings() {
           return {
             words: this.val("words"),
