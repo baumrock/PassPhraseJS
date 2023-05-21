@@ -52,6 +52,7 @@ class PassPhraseJS {
     this.each(this.$$(selector), (input) => {
       input.value = val;
     });
+    return true;
   }
 
   /**
@@ -71,8 +72,8 @@ class PassPhraseJS {
    */
   handleClick(e) {
     let el = e.target;
-    this.copyTo(el.closest("[passphrasejs-copyto"));
-    this.renew(el.closest("[passphrasejs-renew"));
+    if (this.copyTo(el.closest("[passphrasejs-copyto"))) e.preventDefault();
+    if (this.renew(el.closest("[passphrasejs-renew"))) e.preventDefault();
   }
 
   /**
@@ -221,7 +222,9 @@ class PassPhraseJS {
     if (!el) return;
     let selector = el.getAttribute("passphrasejs-renew");
     let target = this.$(selector);
-    if (target) target.innerText = this.passphrase();
+    if (!target) return;
+    target.innerText = this.passphrase();
+    return true;
   }
 
   /**
@@ -242,7 +245,7 @@ class PassPhraseJS {
     options = options || {};
     for (var prop in options) {
       let val = options[prop];
-      console.log("set option", prop, val);
+      this[prop] = val;
     }
     if (logInfo) console.log(this.info());
   }
