@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/baumrock/PassPhraseJS/compare/v0.2.1...v0.3.0) (2023-05-21)
+
+
+### Features
+
+* use lower+uppercase words for better results ([1be709a](https://github.com/baumrock/PassPhraseJS/commit/1be709a0f14749ec8c30d8cd57f9803325e2e323))
+
+
+
 ## [0.2.1](https://github.com/baumrock/PassPhraseJS/compare/v0.2.0...v0.2.1) (2023-05-21)
 
 
