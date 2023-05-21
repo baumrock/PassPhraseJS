@@ -157,7 +157,11 @@
           let input = this.input(name);
           let small = input.closest("div").querySelector("small");
           let words = [];
-          for (var i = 0; i < input.value; i++) words.push("example");
+          for (var i = 0; i < input.value; i++) {
+            words.push(
+              MyPass.randomArrayElement(["example", "Example"]) + (i + 1)
+            );
+          }
           small.innerText = words.join("-");
         }
       }

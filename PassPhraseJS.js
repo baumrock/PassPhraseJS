@@ -103,14 +103,26 @@ class PassPhraseJS {
   }
 
   /**
+   * Get lowercase version of word
+   * @param {string} word
+   * @returns string
+   */
+  lower(word) {
+    return word.toLowerCase();
+  }
+
+  /**
    * Generate a new random passphrase
    * @returns string
    */
   passphrase() {
     let numwords = this.rand(this.minWords, this.maxWords);
     let words = [];
+    let exclude = [];
     for (var i = 0; i < numwords; i++) {
-      words.push(this.randomWord(words));
+      var word = this.randomWord(exclude);
+      words.push(word);
+      exclude.push(this.lower(word));
     }
     let phrase = words.join("-");
     if (phrase.length < this.minLength) return this.passphrase();
@@ -123,9 +135,10 @@ class PassPhraseJS {
    */
   possible(settings) {
     if (settings.words < 1) return "-- INVALID --";
+    let words = settings.words * 2; // upper + lowercase
     let numWords = settings.maxWords - settings.minWords + 1;
-    let approx = Math.pow(settings.words, numWords);
-    if (approx < settings.words) return "-- INVALID --";
+    let approx = Math.pow(words, numWords);
+    if (approx < words) return "-- INVALID --";
     return approx;
   }
 
@@ -145,10 +158,20 @@ class PassPhraseJS {
    * @returns string
    */
   randomWord(exclude) {
-    let key = Math.floor(Math.random() * this.words.length);
-    let word = this.words[key];
-    if (exclude.includes(word)) return this.randomWord(exclude);
-    return word;
+    let word = this.randomArrayElement(this.words);
+    let lower = this.lower(word);
+    let upper = this.upper(word);
+    if (exclude.includes(lower)) return this.randomWord(exclude);
+    return this.randomArrayElement([lower, upper]);
+  }
+
+  /**
+   * Get random array element
+   * @param {array} array
+   * @returns string
+   */
+  randomArrayElement(array) {
+    return array[Math.floor(Math.random() * array.length)];
   }
 
   /**
@@ -174,5 +197,14 @@ class PassPhraseJS {
       console.log("set option", prop, val);
     }
     if (logInfo) console.log(this.info());
+  }
+
+  /**
+   * Get word with first letter uppercase
+   * @param {string} word
+   * @returns string
+   */
+  upper(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
   }
 }
