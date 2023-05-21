@@ -49,8 +49,10 @@ class PassPhraseJS {
     if (!el) return;
     let selector = el.getAttribute("passphrasejs-copyto");
     let val = el.innerText;
+    let event = new Event("change", { bubbles: true });
     this.each(this.$$(selector), (input) => {
       input.value = val;
+      input.dispatchEvent(event);
     });
     return true;
   }
