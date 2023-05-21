@@ -1,3 +1,12 @@
+# [0.4.0](https://github.com/baumrock/PassPhraseJS/compare/v0.3.0...v0.4.0) (2023-05-21)
+
+
+### Features
+
+* add custom separators support ([6c2b859](https://github.com/baumrock/PassPhraseJS/commit/6c2b859c03c45997f40ab503f547d67ea9e2b985))
+
+
+
 # [0.3.0](https://github.com/baumrock/PassPhraseJS/compare/v0.2.1...v0.3.0) (2023-05-21)
 
 
