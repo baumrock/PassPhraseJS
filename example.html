@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>PassPhraseJS Example</title>
+    <script src="./PassPhraseJS.js"></script>
+    <style>
+      a {
+        text-decoration: none;
+        color: blue;
+      }
+      input {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Barebones PassPhraseJS Example</h1>
+    <form>
+      <div>Enter Password:</div>
+      <div>
+        <input type="text" />
+      </div>
+      <div>Confirm Password:</div>
+      <div>
+        <input type="text" />
+      </div>
+    </form>
+    <p>
+      Or use a random password:
+      <a
+        href="#"
+        title="Create a new random password"
+        passphrasejs-renew="#pass"
+      >
+        <img
+          src="./img/TablerRotateClockwise.svg"
+          style="height: 16px; margin: 0 10px"
+        />
+      </a>
+      <a
+        href="#"
+        passphrasejs-copyto="input[type=text]"
+        title="Copy passphrase to inputfields"
+      >
+        <span
+          id="pass"
+          passphrasejs
+        ></span>
+        <img
+          src="./img/TablerCopy.svg"
+          style="height: 16px"
+        />
+      </a>
+    </p>
+    <pre
+      passphrasejs-info
+      style="background-color: #efefef; padding: 10px"
+    ></pre>
+    <script>
+      const pass = new PassPhraseJS(["apple", "banana", "kiwi", "mango"]);
+    </script>
+  </body>
+</html>
