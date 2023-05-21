@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/baumrock/PassPhraseJS/compare/v0.2.0...v0.2.1) (2023-05-21)
+
+
+### Bug Fixes
+
+* update minified file ([4265d4f](https://github.com/baumrock/PassPhraseJS/commit/4265d4f31e596b07b2c1f26b9eb7a1a468921185))
+
+
+
 # [0.2.0](https://github.com/baumrock/PassPhraseJS/compare/v0.1.0...v0.2.0) (2023-05-21)
 
 
