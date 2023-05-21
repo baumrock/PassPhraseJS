@@ -1,3 +1,12 @@
+## [0.5.1](https://github.com/baumrock/PassPhraseJS/compare/v0.5.0...v0.5.1) (2023-05-21)
+
+
+### Bug Fixes
+
+* trigger change event after copyTo ([56b9fff](https://github.com/baumrock/PassPhraseJS/commit/56b9fff312036ab440e8e73cdad66eb12416e8a0))
+
+
+
 # [0.5.0](https://github.com/baumrock/PassPhraseJS/compare/v0.4.1...v0.5.0) (2023-05-21)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * use lower+uppercase words for better results ([1be709a](https://github.com/baumrock/PassPhraseJS/commit/1be709a0f14749ec8c30d8cd57f9803325e2e323))
-
-
-
-## [0.2.1](https://github.com/baumrock/PassPhraseJS/compare/v0.2.0...v0.2.1) (2023-05-21)
-
-
-### Bug Fixes
-
-* update minified file ([4265d4f](https://github.com/baumrock/PassPhraseJS/commit/4265d4f31e596b07b2c1f26b9eb7a1a468921185))
 
 
 
