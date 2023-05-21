@@ -4,7 +4,7 @@ Vanilla Javascript Random Passphrase Generator
 
 ## Demo
 
-<img src=demo.png alt="PassPhraseJS Demo">
+<img src=https://i.imgur.com/cCVtWqu.png alt="PassPhraseJS Demo">
 
 ## Example
 
@@ -24,7 +24,7 @@ Vanilla Javascript Random Passphrase Generator
   </a>
 </p>
 </form>
-<script src="./PassPhraseJS.js"></script>
+<script src="/path/to/PassPhraseJS.min.js"></script>
 <script>
 const passphrase = new PassPhraseJS([
   'apple',
@@ -39,5 +39,7 @@ const passphrase = new PassPhraseJS([
 ## Where to get random words?
 
 You can either use online tools like https://www.atatus.com/tools/random-word-generator or you can ask your preferred AI to create that array of words for you!
+
+PassPhraseJS will take that array and double it by randomly using a lowercase or uppercase first letter of every word.
 
 <img src=https://i.imgur.com/lqrHOws.png>
