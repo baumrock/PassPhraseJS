@@ -12,26 +12,52 @@
     />
     <title>PassPhraseJS Example</title>
     <script src="./PassPhraseJS.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.16.17/dist/css/uikit.min.css"
+    />
     <style>
-      a {
+      a:hover {
         text-decoration: none;
-        color: blue;
       }
-      input {
-        width: 200px;
+      input[type="text"] {
+        width: 250px;
+      }
+      input[type="number"] {
+        width: 80px;
+        font-size: 20px;
+      }
+      small {
+        font-size: 0.8rem;
+        font-weight: normal;
+        margin-left: 10px;
       }
     </style>
   </head>
-  <body>
-    <h1>Barebones PassPhraseJS Example</h1>
+  <body class="uk-padding">
+    <h1>
+      Barebones PassPhraseJS Example
+      <a href="https://github.com/baumrock/PassPhraseJS">
+        <img
+          src="./github-mark.svg"
+          style="height: 30px; margin-left: 15px; transform: translateY(-3px)"
+        />
+      </a>
+    </h1>
     <form>
       <div>Enter Password:</div>
       <div>
-        <input type="text" />
+        <input
+          class="uk-input"
+          type="text"
+        />
       </div>
       <div>Confirm Password:</div>
       <div>
-        <input type="text" />
+        <input
+          class="uk-input"
+          type="text"
+        />
       </div>
     </form>
     <p>
@@ -66,7 +92,78 @@
       style="background-color: #efefef; padding: 10px"
     ></pre>
     <script>
-      const pass = new PassPhraseJS(["apple", "banana", "kiwi", "mango"]);
+      const MyPass = new PassPhraseJS(["apple", "banana", "kiwi", "mango"]);
+    </script>
+
+    <h2>Approximate Possible Passwords Calculator</h2>
+    <form id="calc">
+      <div>
+        <input
+          class="uk-input"
+          type="number"
+          value="100"
+          name="words"
+          step="100"
+        />
+        words in the dictionary
+      </div>
+      <div>
+        <input
+          class="uk-input"
+          type="number"
+          value="2"
+          name="minWords"
+          min="2"
+        />
+        minWords <small></small>
+      </div>
+      <div>
+        <input
+          class="uk-input"
+          type="number"
+          value="4"
+          name="maxWords"
+        />
+        maxWords <small></small>
+      </div>
+      <h3>
+        Possible Passwords: <span id="possible"></span>
+        <small>minLength ignored</small>
+      </h3>
+    </form>
+    <script>
+      class Calculator {
+        settings() {
+          return {
+            words: this.val("words"),
+            minWords: this.val("minWords"),
+            maxWords: this.val("maxWords"),
+          };
+        }
+        calc() {
+          let possible = MyPass.possible(this.settings());
+          document.querySelector("#possible").innerText =
+            possible.toLocaleString();
+          this.words("minWords");
+          this.words("maxWords");
+        }
+        val(name) {
+          return this.input(name).value;
+        }
+        input(name) {
+          return document.querySelector("input[name=" + name + "]");
+        }
+        words(name) {
+          let input = this.input(name);
+          let small = input.closest("div").querySelector("small");
+          let words = [];
+          for (var i = 0; i < input.value; i++) words.push("example");
+          small.innerText = words.join("-");
+        }
+      }
+      const MyCalc = new Calculator();
+      document.addEventListener("input", MyCalc.calc.bind(MyCalc));
+      MyCalc.calc();
     </script>
   </body>
 </html>

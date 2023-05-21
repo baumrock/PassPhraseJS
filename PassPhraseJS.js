@@ -6,7 +6,7 @@ class PassPhraseJS {
     this.minWords = 2;
     this.maxWords = 4;
     // user settings
-    this.words = words;
+    this.words = words || [];
     this.setOptions(options);
     this.init();
   }
@@ -81,6 +81,7 @@ class PassPhraseJS {
   info() {
     let info = [
       "Words in the dictionary: " + this.words.length,
+      "[" + this.words.join(", ") + "]",
       "",
       "--- Settings for random passphrase",
     ];
@@ -90,8 +91,14 @@ class PassPhraseJS {
       info.push(prop + ": " + this[prop]);
     }
     info.push("");
-    info.push("--- Possible Passwords");
-    info.push("TBD");
+    info.push("--- Possible Passwords (minLength ignored)");
+    info.push(
+      this.possible({
+        words: this.words.length,
+        minWords: this.minWords,
+        maxWords: this.maxWords,
+      })
+    );
     return info;
   }
 
@@ -108,6 +115,18 @@ class PassPhraseJS {
     let phrase = words.join("-");
     if (phrase.length < this.minLength) return this.passphrase();
     return phrase;
+  }
+
+  /**
+   * Calculate approximate number of possible passwords for given settings
+   * @param {object} settings
+   */
+  possible(settings) {
+    if (settings.words < 1) return "-- INVALID --";
+    let numWords = settings.maxWords - settings.minWords + 1;
+    let approx = Math.pow(settings.words, numWords);
+    if (approx < settings.words) return "-- INVALID --";
+    return approx;
   }
 
   /**
