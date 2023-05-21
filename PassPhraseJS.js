@@ -5,7 +5,7 @@ class PassPhraseJS {
     this.minLength = 10;
     this.minWords = 2;
     this.maxWords = 4;
-    this.separators = "+-*:";
+    this.separators = "+-*:.!?,";
     // user settings
     this.words = words || [];
     this.setOptions(options);
