@@ -8,7 +8,7 @@ Vanilla Javascript Random Passphrase Generator
 
 ## Example
 
-<a href="example.html">Also see the interactive example here!</a>
+<a href="https://baumrock.github.io/PassPhraseJS/example.html">Also see the interactive example here!</a>
 
 ## Usage:
 
