@@ -47,9 +47,11 @@ const passphrase = new PassPhraseJS([
 
 ## Example
 
+<a href="https://baumrock.github.io/PassPhraseJS/example.html">
 <img src=https://i.imgur.com/UdtRUcQ.png>
 
-<a href="https://baumrock.github.io/PassPhraseJS/example.html">Be sure to check out the interactive example here!</a>
+Be sure to check out the interactive example here!
+</a>
 
 ## Where to get random words?
 
