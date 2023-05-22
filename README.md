@@ -6,11 +6,13 @@ Vanilla Javascript Random Passphrase Generator
 
 <img src=https://i.imgur.com/cCVtWqu.png alt="PassPhraseJS Demo">
 
-## Example
-
-<a href="https://baumrock.github.io/PassPhraseJS/example.html">Also see the interactive example here!</a>
-
 ## Usage:
+
+You can add PassPhraseJS to any HTML page in seconds. Just add the following attributes to your markup:
+
+- passphrasejs: Will hold the random passphrase.
+- passphrasejs-copyto: Will copy the passphrase to the specified target/targets on click.
+- passphrasejs-renew: Will regenerate the passphrase in the target element on click.
 
 ```html
 <form>
@@ -35,6 +37,12 @@ const passphrase = new PassPhraseJS([
 ]);
 </script>
 ```
+
+## Example
+
+<img src=https://i.imgur.com/UdtRUcQ.png>
+
+<a href="https://baumrock.github.io/PassPhraseJS/example.html">Be sure to check out the interactive example here!</a>
 
 ## Where to get random words?
 
