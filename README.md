@@ -62,3 +62,9 @@ You can either use online tools like https://www.atatus.com/tools/random-word-ge
 PassPhraseJS will take that array and double it by randomly using a lowercase or uppercase first letter of every word.
 
 <img src=https://i.imgur.com/lqrHOws.png>
+
+## Congrats
+
+You made it to the end 🚀
+
+🌟 If this was helpful please hit the star button and I promise to send you a lifetime supply of virtual donuts! 🍩💌 Because who doesn't want a sugar rush while coding? 😉
