@@ -1,3 +1,12 @@
+# [0.6.0](https://github.com/baumrock/PassPhraseJS/compare/v0.5.1...v0.6.0) (2023-05-22)
+
+
+### Features
+
+* copy to clipboard when copy icon is clicked ([5c1673f](https://github.com/baumrock/PassPhraseJS/commit/5c1673fdee180cdc5a840091eba03f2532adaa03))
+
+
+
 ## [0.5.1](https://github.com/baumrock/PassPhraseJS/compare/v0.5.0...v0.5.1) (2023-05-21)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * add custom separators support ([6c2b859](https://github.com/baumrock/PassPhraseJS/commit/6c2b859c03c45997f40ab503f547d67ea9e2b985))
-
-
-
-# [0.3.0](https://github.com/baumrock/PassPhraseJS/compare/v0.2.1...v0.3.0) (2023-05-21)
-
-
-### Features
-
-* use lower+uppercase words for better results ([1be709a](https://github.com/baumrock/PassPhraseJS/commit/1be709a0f14749ec8c30d8cd57f9803325e2e323))
 
 
 
