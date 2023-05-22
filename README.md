@@ -49,7 +49,9 @@ const passphrase = new PassPhraseJS([
 
 <a href="https://baumrock.github.io/PassPhraseJS/example.html">
 <img src=https://i.imgur.com/UdtRUcQ.png>
+</a>
 
+<a href="https://baumrock.github.io/PassPhraseJS/example.html">
 Be sure to check out the interactive example here!
 </a>
 
