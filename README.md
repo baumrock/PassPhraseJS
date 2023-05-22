@@ -10,9 +10,16 @@ Vanilla Javascript Random Passphrase Generator
 
 You can add PassPhraseJS to any HTML page in seconds. Just add the following attributes to your markup:
 
-- passphrasejs: Will hold the random passphrase.
-- passphrasejs-copyto: Will copy the passphrase to the specified target/targets on click.
-- passphrasejs-renew: Will regenerate the passphrase in the target element on click.
+- `passphrasejs`
+
+  Will hold the random passphrase.
+
+- `passphrasejs-copyto`
+
+  Will copy the passphrase to the specified target/targets on click.
+- `passphrasejs-renew`
+
+  Will regenerate the passphrase in the target element on click.
 
 ```html
 <form>
