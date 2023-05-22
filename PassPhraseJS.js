@@ -49,6 +49,11 @@ class PassPhraseJS {
     if (!el) return;
     let selector = el.getAttribute("passphrasejs-copyto");
     let val = el.innerText;
+
+    // copy to clipboard
+    navigator.clipboard.writeText(val);
+
+    // trigger change event on the inputfields
     let event = new Event("change", { bubbles: true });
     this.each(this.$$(selector), (input) => {
       input.value = val;
