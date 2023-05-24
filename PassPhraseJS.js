@@ -51,7 +51,19 @@ class PassPhraseJS {
     let val = el.innerText;
 
     // copy to clipboard
-    navigator.clipboard.writeText(val);
+    if (!navigator.clipboard) {
+      const textArea = document.createElement("textarea");
+      textArea.value = val;
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand("copy");
+      } catch (err) {
+        console.error("Unable to copy to clipboard", err);
+      }
+      document.body.removeChild(textArea);
+    } else navigator.clipboard.writeText(val);
 
     // trigger change event on the inputfields
     let event = new Event("change", { bubbles: true });
