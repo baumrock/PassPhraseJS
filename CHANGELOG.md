@@ -1,3 +1,12 @@
+# [0.7.0](https://github.com/baumrock/PassPhraseJS/compare/v0.6.0...v0.7.0) (2023-05-24)
+
+
+### Features
+
+* add fallback copy to clipboard if no clipboard api ([c6da267](https://github.com/baumrock/PassPhraseJS/commit/c6da267a9b2c70b22715abaa78adc849f64da3c1))
+
+
+
 # [0.6.0](https://github.com/baumrock/PassPhraseJS/compare/v0.5.1...v0.6.0) (2023-05-22)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * setOptions() not working and preventDefault missing ([5d50227](https://github.com/baumrock/PassPhraseJS/commit/5d50227934bdcb5c1253df3a6ab174adc6f42e80))
-
-
-
-# [0.4.0](https://github.com/baumrock/PassPhraseJS/compare/v0.3.0...v0.4.0) (2023-05-21)
-
-
-### Features
-
-* add custom separators support ([6c2b859](https://github.com/baumrock/PassPhraseJS/commit/6c2b859c03c45997f40ab503f547d67ea9e2b985))
 
 
 
